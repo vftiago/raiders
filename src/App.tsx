@@ -1,13 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p css={subtitleStyle}>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
@@ -22,5 +24,9 @@ function App() {
     </div>
   );
 }
+
+const subtitleStyle = css`
+  color: red;
+`;
 
 export default App;
