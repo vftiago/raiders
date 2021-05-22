@@ -1,30 +1,44 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import logo from "./logo.svg";
-import "./App.css";
+import { backgroundColor } from "./commons/colors";
+import * as packageJson from "../package.json";
+import Card from "./game-ui/Card";
+import Header from "./Header";
+import { useState } from "react";
+import Button from "./game-ui/Button";
 
 function App() {
+  const [turn, setTurn] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p css={subtitleStyle}>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div css={containerStyle}>
+      <Header name={packageJson.name} version={packageJson.version}></Header>
+      <main css={mainStyle}>
+        <Card></Card>
+        <Button
+          circle
+          onClick={() => {
+            setTurn(turn + 1);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          End turn ({turn})
+        </Button>
+      </main>
     </div>
   );
 }
 
+const containerStyle = css`
+  display: flex;
+  flex-direction: column;
+  padding: 16px 32px;
+  background-color: ${backgroundColor};
+`;
+
+const mainStyle = css`
+  color: red;
+`;
 const subtitleStyle = css`
   color: red;
 `;
