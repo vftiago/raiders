@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { backgroundColor } from "../commons/colors";
 
 function Card() {
   return <div css={containerStyle}></div>;

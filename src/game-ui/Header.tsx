@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { backgroundColor } from "./commons/colors";
 
 function Card({ name, version }: { name: string; version: string }) {
   return (
@@ -18,9 +17,6 @@ const headerStyle = css`
   flex-direction: column;
 `;
 
-const mainStyle = css`
-  color: red;
-`;
 const subtitleStyle = css`
   color: red;
 `;
