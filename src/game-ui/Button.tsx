@@ -17,28 +17,33 @@ function Button({
   onClick: () => void;
 }) {
   return (
-    <button
-      disabled={disabled}
-      onClick={onClick}
-      css={[
-        buttonStyle,
-        circle && circleButtonStyle,
-        primary && primaryButtonStyle,
-        disabled && disabledButtonStyle,
-      ]}
-    >
-      {children}
-    </button>
+    <div css={buttonContainerStyle}>
+      <button
+        disabled={disabled}
+        onClick={onClick}
+        css={[
+          buttonStyle,
+          circle && circleButtonStyle,
+          primary && primaryButtonStyle,
+          disabled && disabledButtonStyle,
+        ]}
+      >
+        {children}
+      </button>
+      <div css={buttonEdgeStyle}></div>
+    </div>
   );
 }
 
 const buttonStyle = css`
+  position: relative;
+  top: -5px;
+
   @keyframes color {
     to {
       background-color: #ff1e1e;
     }
   }
-
   font-family: "Press Start 2P";
   font-size: 16px;
   letter-spacing: 2px;
@@ -51,12 +56,30 @@ const buttonStyle = css`
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
-  border-bottom: 5px solid #a52c2c;
+  z-index: 1;
   &:active {
-    border-bottom: none;
     position: relative;
-    top: 5px;
+    top: 0;
   }
+`;
+
+const buttonEdgeStyle = css`
+  position: absolute;
+  height: 100px;
+  width: 120px;
+  border-radius: 5px;
+  background-color: #a52c2c;
+`;
+
+const buttonContainerStyle = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  padding: 5px;
+  border-radius: 5px;
+  height: 110px;
+  width: 130px;
 `;
 
 const circleButtonStyle = css`

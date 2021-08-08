@@ -46,17 +46,17 @@ const wrapperStyle = css`
 
 const containerStyle = css`
   display: flex;
-  width: 800px;
+  width: 1025px;
   flex-direction: column;
   padding: 16px 32px;
   background-color: ${backgroundColor};
-  div {
-    margin-bottom: 40px;
-  }
 `;
 
 const mainStyle = css`
   color: red;
+  margin-top: 40px;
+
+  margin-bottom: 40px;
 `;
 
 const footerButtonContainer = css`
