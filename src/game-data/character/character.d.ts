@@ -1,17 +1,21 @@
-type PhysicalCharacterStats = "str" | "dex" | "con";
+// defines the character's physical body
+type PhysicalCharacterStats = "str" | "dex" | "con" | "beauty";
 
-type PsychologicalCharacterStats = "int" | "wis" | "cha";
+// defines the character's mental qualities
+type PsychologicalCharacterStats = "int" | "per" | "wis" | "cha";
 
-type MysticalCharacterStats = "luck";
+// defines the character's metaphysical attributes
+type MetaphysicalCharacterStats = "faith" | "luck";
 
 type CharacterStatId = PhysicalCharacterStats &
   PsychologicalCharacterStats &
-  MysticalCharacterStats;
+  MetaphysicalCharacterStats;
 
-export type CharacterStat = { label: string; value: number };
+type CharacterStat = { label: string; value: number };
 
-export type CharacterStats = Record<CharacterStatId, CharacterStat>;
+type CharacterStats = Set<CharacterStatId, CharacterStat>;
 
-export type CharacterSheet = {
+type CharacterSheet = {
   characterStats: CharacterStats;
+  characterTrauts: CharacterTrait[];
 };

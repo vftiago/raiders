@@ -1,4 +1,4 @@
-import { Scene, SceneParagraph } from "./types/scenes";
+import { Scene, SceneParagraph } from "./types/scene";
 
 export const getParagraph = (
   scene: Scene,

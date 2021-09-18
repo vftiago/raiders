@@ -1,4 +1,4 @@
-import { WeightedEntity } from "../game-data/types/scenes";
+import { WeightedEntity } from "../game-data/types/scene";
 
 export const pickWeightedItem = <T extends WeightedEntity>(
   weightedItemMap: Map<string, T>,

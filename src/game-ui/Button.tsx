@@ -26,24 +26,25 @@ function Button({
           circle && circleButtonStyle,
           primary && primaryButtonStyle,
           disabled && disabledButtonStyle,
+          !disabled && enabledButtonStyle,
         ]}
       >
         {children}
       </button>
-      <div css={buttonEdgeStyle}></div>
+      <div
+        css={[
+          buttonEdgeStyle,
+          disabled && disabledButtonEdgeStyle,
+          !disabled && enabledButtonEdgeStyle,
+        ]}
+      ></div>
     </div>
   );
 }
 
 const buttonStyle = css`
   position: relative;
-  top: -5px;
-
-  @keyframes color {
-    to {
-      background-color: #ff1e1e;
-    }
-  }
+  top: -8px;
   font-family: "Press Start 2P";
   font-size: 16px;
   letter-spacing: 2px;
@@ -52,10 +53,7 @@ const buttonStyle = css`
   width: 120px;
   border-radius: 5px;
   border: none;
-  animation-name: color;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
+
   z-index: 1;
   &:active {
     position: relative;
@@ -86,8 +84,37 @@ const circleButtonStyle = css`
   border-radius: 50%;
 `;
 
+const enabledButtonStyle = css`
+  @keyframes color {
+    to {
+      background-color: #ff1e1e;
+    }
+  }
+  animation-name: color;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+`;
+
 const disabledButtonStyle = css`
-  background-color: #a52c2c;
+  color: grey;
+  background-color: #492424;
+`;
+
+const enabledButtonEdgeStyle = css`
+  @keyframes edgeColor {
+    to {
+      background-color: #ce2727;
+    }
+  }
+  animation-name: edgeColor;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+`;
+
+const disabledButtonEdgeStyle = css`
+  background-color: #572222;
 `;
 
 const primaryButtonStyle = css`

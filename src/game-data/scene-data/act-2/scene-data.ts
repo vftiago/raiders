@@ -1,4 +1,4 @@
-import { Scene } from "../../types/scenes";
+import { Scene } from "../../types/scene";
 
 export const sceneTable: Map<string, Scene> = new Map();
 
