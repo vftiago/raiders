@@ -10,6 +10,7 @@ import Button from "./game-ui/Button";
 import MiniMap from "./game-ui/MiniMap";
 import { pickWeightedItem } from "./utils/utils";
 import { sceneTable } from "./game-data/scene-data/act-1/scene-data";
+import Screen from "./game-ui/Screen";
 
 type GameAction = {
   type: "increment" | "decrement";
@@ -38,7 +39,7 @@ const initialState: GameState = {
   turn: 0,
 };
 
-function Game() {
+function App() {
   const [jumpButtonDisabled, setJumpButtonDisabled] = useState(true);
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -57,7 +58,7 @@ function Game() {
         <Header name={packageJson.name} version={packageJson.version}></Header>
         {/* <MiniMap currentLevel={turn}></MiniMap> */}
         <main css={mainStyle}>
-          <div css={screenStyle}></div>
+          <Screen></Screen>
           <Textbox
             currentScene={currentScene}
             handleSceneEnd={handleSceneEnd}
@@ -78,14 +79,6 @@ function Game() {
     </div>
   );
 }
-
-const screenStyle = css`
-  display: flex;
-  justify-content: center;
-  color: rgb(250, 145, 15);
-  background-color: rgb(7, 7, 7);
-  height: 100%;
-`;
 
 const wrapperStyle = css`
   display: flex;
@@ -113,4 +106,4 @@ const footerButtonContainer = css`
   justify-content: flex-end;
 `;
 
-export default Game;
+export default App;
