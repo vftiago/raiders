@@ -1,0 +1,18 @@
+/* We need to remove Tailwind's classes from the cascade layer so that they can have higher specificity than Mantine's. Note that the CSS files' import order also matters (this one must go last so that Tailwind's classes can override Mantine's in case of conflict), like so:
+ * import "@mantine/core/styles.css";
+ * import "./index.css";
+ * Read more here: https://github.com/tailwindlabs/tailwindcss/discussions/15832#discussioncomment-11950799
+ */
+@layer theme, base, components, utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap");
+
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css";
+
+html,
+body,
+#root {
+  height: 100%;
+}
